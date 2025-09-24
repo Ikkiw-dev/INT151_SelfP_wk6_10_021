@@ -20,4 +20,26 @@ console.log(calculate([10,2,0,7], min))
 console.log(calculate([10,2,0,7], sort))
 
 
+function idGenerator () {
+    let id = 0;
+    return function () {
+        id += 1;
+        return id;
+    }
+}
 
+const idGen = idGenerator();
+
+console.log(idGen());
+console.log(idGen());
+console.log(idGen());
+
+function dynamicplus (a) {
+    function innerfunc (b) {
+        return a + b;
+    }
+    return innerfunc
+}
+
+const addeleven = dynamicplus(11);
+console.log(addeleven(3));
