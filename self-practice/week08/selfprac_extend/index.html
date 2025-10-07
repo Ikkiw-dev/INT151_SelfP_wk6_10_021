@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM + Event Practice</title>
+  <style>
+    body { font-family: sans-serif; margin: 20px; line-height: 1.5; }
+    h2 { color: #0078d7; }
+    button { margin-top: 5px; }
+    .box { border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; border-radius: 8px; }
+    .item { padding: 4px; transition: 0.2s; }
+    .item:hover { cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <h1 id="title">Class 8 - DOM & Event Self Practice (67130500021 Pongsatorn Liao)</h1>
+
+  <!-- Q1 -->
+  <div class="box">
+    <h2>1. แสดงข้อความใน &lt;p&gt;</h2>
+    <p id="output"> Text : Today I review JS about dom and event! </p>
+  </div>
+
+  <!-- Q2 -->
+  <div class="box">
+    <h2>2. เปลี่ยนสีหัวข้อ</h2>
+    <h3 id="colorTitle">This is a heading</h3>
+    <h4> โจทย์ที่สงสัยเอง : แล้วถ้าอยากทำให้ ข้อความ เปลี่ยนสี โดยใช้ button หล่ะ</h4>
+  </div>
+
+  <!-- Q3 -->
+  <div class="box">
+    <h2>3. เปลี่ยนข้อความเมื่อกดปุ่ม</h2>
+    <button id="btn">Click me</button>
+    <p id="msg">Before click</p>
+    <h4> โจทยืที่สงสัยเพิ่มเติม : ลอง toggle ระหว่าง text </h4>
+  </div>
+
+  <!-- Q4 -->
+  <div class="box">
+    <h2>4. เปลี่ยนพื้นหลังของหน้าเว็บ</h2>
+    <button id="bgBtn">Change Background</button>
+  </div>
+
+  <!-- Q5 -->
+  <div class="box">
+    <h2>5. อ่านค่าจากช่อง input</h2>
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <button id="showBtn">Show</button>
+    <p id="display"></p>
+  </div>
+
+  <!-- Q6 -->
+  <div class="box">
+    <h2>6. นับจำนวนครั้งที่กดปุ่ม</h2>
+    <button id="countBtn">Click!</button>
+    <p id="counter">Clicked 0 times</p>
+    <h4> additional task : สามารถ reset ค่า count ได้</h4>
+  </div>
+
+  <!-- Q7 -->
+  <div class="box">
+    <h2>7. เปลี่ยนสี list เมื่อ hover</h2>
+    <ul>
+      <li class="item">Apple</li>
+      <li class="item">Banana</li>
+      <li class="item">Cherry</li>
+    </ul>
+  </div>
+
+  <!-- Q8 -->
+  <div class="box">
+    <h2>8. ลบ element เมื่อกดปุ่ม “delete”</h2>
+    <ul id="list">
+      <li>Item 1 <button class="delBtn">X</button></li>
+      <li>Item 2 <button class="delBtn">X</button></li>
+      <li>Item 3 <button class="delBtn">X</button></li>
+    </ul>
+  </div>
+
+  <!-- Q9 -->
+  <div class="box">
+    <h2>9. เพิ่ม item เข้า list</h2>
+    <input id="newItem" placeholder="New item">
+    <button id="addBtn">Add</button>
+    <ul id="todo"></ul>
+    <h4> Challenge : แล้วเรียก list มาดูได้อย่างไร?</h4>
+  </div>
+
+  <!-- Q10 -->
+  <div class="box">
+    <h2>10. ตรวจสอบ email (Form validation)</h2>
+    <form id="myForm">
+      <input id="email" type="text" placeholder="Enter email">
+      <button type="submit">Submit</button>
+    </form>
+    <p id="result"></p>
+  </div>
+  <script src = "main.js" > </script>
