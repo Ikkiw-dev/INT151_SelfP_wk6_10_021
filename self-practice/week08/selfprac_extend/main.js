@@ -44,15 +44,9 @@ document.querySelectorAll(".delBtn").forEach((button) => {
 });
 
 //q9
-// document.getElementbyId("addBtn").addEventListener("click", function () {
-//   const txt = document.getElementById("newItem").value.trim();
-//   if (txt !== "") {
-//     const li = document.createElement("li");
-//     li.textContent = txt;
-//     document.getElementById("todo").appendChild(li);
-//     documen.getElementById("newItem").value = "";
-//   }
-// });
+document.getElementById("addBtn").addEventListener('click', function () {
+  
+})
 
 
 //q10
