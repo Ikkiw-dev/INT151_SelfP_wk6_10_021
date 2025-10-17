@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     bgcolor.value = savebg;
     fontcolor.value = sfontColor;
-    fontsize.value = sfzie;
+    fontsize.value = sfsize;
 
     function applySettings(bg, fc, fs) {
         document.body.style.backgroundColor = bg;
