@@ -1,0 +1,55 @@
+Class 10 : Week 10 Progression 
+67130500021 Pongsatorn Liao
+
+การได้เรียนรู้เรื่อง client storage เพื่อให้เห็นถึง วัตถุประสงค์ของการเก็บ data ในฝั่งของ client
+และได้เห็นถึงความแตกต่างระหว่าง cookie, session storage และ local storage โดยสรุปได้ดังต่อไปนี้
+
+#cookie
+    - เป็น technique เดียวที่สามารถส่งข้อมูลเป็น package ไปหาที่ฝั่ง server ได้ โดยใช้ HTTP Protocol
+    - มี expiration date ได้หลายวัน (ตาม cookie แต่ละตัว)
+    - มี limit อยู่ที่ 4kb
+    - สามารถ access ได้จาก third parties cookies (เพื่อมาเก็บพฤติกรรม หรือพวก UX แล้วดึงมาใช้อีกครั้ง เช่น การทำ advertisement เป็นต้น)
+    - cookie ควรสร้างมาจาก domain อันเดียวเท่านั้น ถ้าเป็น domain อื่น ที่ไม่ใช่ web ที่เราต้องการติดต่อ นั้นคือ third parties cookies
+    - การรู้จัก path ที่จะส่งออกได้
+    - HTTPOnly ที่อยู่ใน cookie คือ การ allow protocol ไม่ให้อ่านจาก file JavaScript โดยตรง ซึ่งเอามาช่วย protect sensitive data ได้
+    - ข้อเสีย คือ worsen performance -> การที่ cookie พยายามสร้างทุกสิ่งทุกอย่าง แล้วเละเทะ
+    - รู้จัก specification ของ minimum number ของ cookie
+        300 cookies total
+        4096 bytes per cookie
+        20 cookies per domain
+        81920 bytes per domain
+    - ถ้า cokie เกิน จะต้องมาดูว่า cookie อันไหนเก่าสุด แล้วเลือกลบอันนั้นออก
+    - รู้จักการ set cookie ดังตัวอย่างคือ
+        set-cookie: cookie-name=cookie-value
+    - ได้เรียนรู้เรื่อง cookie path มากขึ้น
+
+#session storage
+    - ปิด browser แล้วหายหมด
+    - Client only
+    - ไม่ได้ transfer ผ่าน HTTP Protocol
+    - limit อยู่ที่ 5mb
+
+#local storage
+    - ไม่มีวันหมดอายุ แต่ จะไม่มีความ secure จากการเก็ย local
+    - Client only (server can't read any value)
+    - ไม่ได้ transfer ผ่าน HTTP Protocol
+    - limit อยู่ที่ 5mb
+    - ไม่ควรเก็บ data ไว้ที่ local storage เพราะจะทำให้ security มีปัญหา
+
+#การ get และ set item ใน web storage (local / session)
+การเก็บข้อมูล (set) สามารถทำได้โดยใช้คำสั่ง setItem(key, value)
+    localStorage.setItem("username", "Pongsatorn");
+    sessionStorage.setItem("theme", "dark");
+    โดย key คือชื่อของข้อมูล และ value คือค่าที่เก็บ (ต้องเป็น string เท่านั้น หากเป็น object ต้องมีการแปลงด้วย JSON.stringify())
+
+การเรียกดูข้อมูล (get) ใช้คำสั่ง getItem(key)
+    const name = localStorage.getItem("username");
+    const theme = sessionStorage.getItem("theme");
+    ถ้า key นั้นไม่มีอยู่ใน storage ค่าที่ได้จะเป็น null
+
+การ remove Item และ clear
+    remove คือการ การ clear ออกบางตัว โดยให้ค่าเป็น keyName ไปด้วย -> จะลบเฉพาะรายการ (item) ที่มี key ตรงกับ keyName เท่านั้น เช่น ถ้าใน localStorage มีหลายข้อมูลอยู่ แต่เราเรียก localStorage.removeItem("username") จะลบแค่ key "username" ส่วนข้อมูลอื่นยังอยู่ครบ
+    
+    ส่วน clear คือการ clear ออกทั้งหมด -> ม่ว่าจะเป็น key ไหนก็ตาม เช่น ถ้าเรียก sessionStorage.clear() ก็จะลบทุก key ที่อยู่ใน session storage ปัจจุบัน
+
+

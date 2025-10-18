@@ -1,0 +1,78 @@
+Class 7 : Week 7 Progression 
+67130500021 Pongsatorn Liao
+
+DOM -> Document Object Modeling เปรียบเสมือน API ชนิดหนึ่ง ที่มาเพื่อเข้าถึงระดับแต่ละระดับของเอกสาร (ทั้งนี้ จะ mention ถึงแค่ .html)
+
+เพื่อไปสร้าง mechanism ให้กับเอกสาร หรือที่ผมเข้าใจคือการเพิ่มลูกเล่นให้กับ element แต่ละ element โดยใช้สิ่งที่เรียกว่า JavaScript มาเป็นตัวจัดการ
+
+1. การรู้จักกัับ Root Node และ Document Object
+    console.log(window.document)
+    console.log(document)
+ซึ่งเป็น root object ของ DOM Tree และเป็นจุดเริ่มต้นของการเข้าถึง HTML ทั้งหมดในหน้า website
+
+2. Access HTML Elements
+    console.log(document.getElementById('intro'))
+ตัวอย่างการเข้าถึง element ด้วย id เพื่อใช้ในการ query DOM
+
+3. ความสัมพันธ์ระหว่าง Node (Node Relationships)
+    console.log(document.firstChild) -> ลูกคนแรกของ document (ซึ่งอาจเป็น child หรือ comment node ก็ได้)
+    console.log(document.firstElementChild) -> ลูกที่เป็น element node ของคนแรก เช่น <html></html>
+    console.log(document.lastChild) -> ลูกคนสุดท้าย 
+    console.log(document.lastElementChild) -> ลูกคนสุดท้าย
+
+4. Parent Node
+    const htmlElement = document.documentElement
+    console.log(htmlElement.parentNode) -> แสดง parent ของ element และ <html> มี parent ของ document
+checking validation
+    if (htmlElement.parentNode === document)
+    console.log("parent html is a root node")
+        ผลลัพธ์ที่จะได้จาก code นี้คือ true
+
+5. Sibling หรือการเข้าถึงพี่น้องใน DOM
+    console.log(document.firstChild.nextSibling) -> คือน้องถัดไปใน DOM ซึ่งอาจเป็น text, comment หรือ element ก็ได้
+
+6. Child Nodes
+    const divElement = document.getElementById('intro')
+    const divChildNodes = divElement.childNodes -> ได้ NodeList ของลุกทั้งหมด (รวมไปถึง text และ comment)
+    #แต่ .children ได้เฉพาะแค่ Element Children เท่านั้น
+
+    const divChildren = divElement.children
+    Array.from(divChildren).forEach((child) => console.log(child))
+    #ใช้แปลง NodeList -> Array เพื่อวน loop เข้าไปในนั้นได้ง่ายขึ้น
+
+7. Attributes
+    const divEle = document.getElementById('intro')
+    const divAttrs = divEle.attributes
+	•	.attributes → คืนค่ารายการ attribute ทั้งหมดใน element
+	•	สามารถเข้าถึงชื่อ (.name) และค่า (.value) ได้
+        divEle.getAttribute("id")
+        divEle.getAttribute("style")
+    •	getAttribute() → ใช้ดึงค่าของ attribute เฉพาะตัวได้
+
+8. Node Type
+    console.log(document.firstChild.nodeType)
+    	•	.nodeType → คืนค่าเป็นตัวเลขที่บอกประเภทของ node
+    โดย node type ก็จะมีดังนี้ คือ
+        - 1 คึือ ELEMENT_NODE
+        - 3 คือ TEXT_NODE
+        - 8 คือ COMMENT_NODE
+        - 9 คือ DOCUMENT_NODE
+
+9. ตัวอย่างการ check ด้าน conditional เพื่อตรวจสอบว่า node ที่เจอเป็นประเภท element หรือไม่
+    if (document.firstElementChild.nodeType === Node.ELEMENT_NODE) {
+    console.log("Hello, HTML node")
+    } else {
+    console.log("Hello, any node")
+    }
+
+10. Create + append elements
+    const pElement = document.createElement("p")  //<p></p>
+    pElement.setAttribute("id", "p5")             //<p id="p5"></p>
+    pElement.textContent = "#5"                   //<p id="p5">#5</p>
+    document.body.appendChild(pElement)           //<body>...<p id="p5">#5</p>
+
+    ทำให้ได้รู้ถึง step ในการสร้าง element
+    1. createElement() -> สร้าง tag ใหม่
+    2. setAttribute() -> ตั้งค่า Attribute
+    3.	textContent → ใส่ข้อความภายใน
+	4.	appendChild() → เพิ่มเข้าไปใน DOM (ต่อท้าย node ที่ต้องการ เช่น <body>)

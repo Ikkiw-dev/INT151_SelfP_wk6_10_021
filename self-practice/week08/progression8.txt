@@ -1,0 +1,24 @@
+Class 8 : Week 8 Progression 
+67130500021 Pongsatorn Liao
+
+Progression ครั้งนี้ ได้ทำโจทย์เพื่อเรียนรู้การเข้าถึง node แต่ละ node และเข้าไปเพื่อไปจัดการได้เห็นภาพมากขึ้น
+ทั้งจากการทำโจทย์ที่อาจารย์ให้ และส่วนตัวที่ใช้ AI เพื่อ generate โจทย์มาให้
+
+ทั้งนี้ ยังได้เรียนรู้เรื่องของ basic event ด้วยการ addEventlistener method click เพื่อไปทำลูกเล่นบางอย่างกับโจทย์
+
+เช่น การเปลี่ยนสี การเปลี่ยน ui, การเพิ่มค่า, การลบค่่า, การเข้าไปเปลี่ยนสี text, การนับจำนวนครั้งที่กดปุ่ม หรือการเปลี่ยนสีพื้นหลัง และอื่นๆ อีกมากมาย ที่ทำให้ expose การเข้าถึง element ต่างๆเพื่อเข้าไปจัดการได้เห็นภาพมากขึ้น
+
+ทั้งนี้ ยังมีการทำ project quote manager ที่ได้เห็นภาพต่อเชิงลึก จากการทำแต่ function แต่ละ function (CRUD)
+
+function renderQuotes() {
+    quoteList.innerHTML = ''
+    quotes.forEach((q) => {
+        const p = document.createElement('p')
+        p.textContent = `${q.content} - ${q.author}`
+        quoteList.appendChild(p)
+    });
+}
+
+renderQuotes();
+
+โดยได้ลองใช้ function forEach, เรียนรู้ innerHTML, textContent และ appendChild มากขึ้น

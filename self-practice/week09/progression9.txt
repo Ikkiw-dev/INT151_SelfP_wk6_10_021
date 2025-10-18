@@ -1,0 +1,58 @@
+Class 9 : Week 9 Progression 
+67130500021 Pongsatorn Liao
+
+Event -> ได้เรียนรู้เรื่องของ event เพื่อมาใช้จัดการให้มีลูกเล่นมากขึ้น ด้วบการ
+    - เอา event ไปฝังไว้ที่  node ใดๆ ของ Tree
+    - ไม่ require users (event ของ web เปลี่ยน),มี user interaction มากขึ้น
+
+#Event Propagation (การกำหนดทิศทางการไหลของ event)
+
+Three event Phase flow
+    - ทิศทางการไหลจาก root node (ไกลที่สุด จากจุดเกิดเหตุนั้น)
+    - จุดเกิดเหตุเลย (node 4)
+    - จุดเกิดเหตุ วิ่งไปยัง root node
+
+#Event Handlers
+    - addEventlistener() เพื่อเพิ่ม event บางอย่าง
+    - removeEventListener() เพื่อ remove event บางอย่าง
+
+    โดยการ add หรือ remove จะต้องมี parameter ดังต่อไปนี้
+    1. ชื่อ type ของ event ที่จะมาเพื่อ handle
+    2. เมื่อเกิด event นั้นแล้วจะให้ทำอะไร (เป็น function)
+    3. การ indicate boolean หรือการเขียน event ให้ event ออกมาในลักษณะไหน
+
+#Event Object
+    คือ element ที่เกิด event นั้น และ type ของ event ที่ occur ขึ้นมา หรือ data ที่เชื่อมโยงกับ particular event
+    ตัวอย่างเข่น
+    let btn = documnet.getElementById("myBtn")
+btn.addEventlistener("click", (event) => {
+    console.log(event.type)
+},false)
+
+    จากตัวอย่างคือเกิดจาก mouse action ที่ generate ข้อมูลเกี่ยวกับ mouse position โดยที่ keyboard action ก็จะ generate ตัว key ที่กดมา
+
+#Event Categories
+    State change events -> การเปลี่ยนสถานะของเอกสารหรือองค์ประกอบในหน้าเว็บ
+        ซึ่งจะเกิดขึ้นเมื่อมีการเปลี่ยนสถานะของเอกสารหรือองค์ประกอบ เช่น load เมื่อหน้าเว็บโหลดเสร็จ, resize เมื่อขนาดหน้าต่างถูกปรับ, scroll เมื่อมีการเลื่อนหน้า, หรือ change เมื่อค่าของ input ถูกเปลี่ยน เหมาะกับการใช้ตรวจจับการเปลี่ยนแปลงในระดับ document หรือ element
+
+    Focus events -> เกิดขึ้นเมื่อ element ได้รับหรือสูญเสีย focus (การเลือก/active)
+        Focus Events ที่เกี่ยวข้องกับการได้รับหรือสูญเสียโฟกัสของ element เช่น focus, blur, focusin, และ focusout โดยมักใช้กับช่องกรอกข้อมูล <input> หรือ <textarea> เพื่อเปลี่ยนสไตล์หรือเช็กค่าก่อนผู้ใช้ย้ายออกจากช่องนั้น
+
+    Mouse events -> เกิดจากการ “เคลื่อนไหวหรือคลิกเมาส์” บนหน้าเว็บ
+        เช่น click, dblclick, mousedown, mouseup, mouseenter, และ mouseleave โดยมักนำมาใช้กับปุ่มหรือรูปภาพเพื่อสร้างปฏิสัมพันธ์ เช่น การกดปุ่มหรือ hover เปลี่ยนสี
+
+    Keyboard events -> เกิดขึ้นเมื่อผู้ใช้กดหรือปล่อยปุ่มบนคีย์บอร์ด
+        ได้แก่ keydown, keypress (ซึ่งปัจจุบันไม่ค่อยใช้แล้ว) และ keyup สามารถใช้ตรวจสอบค่าของปุ่มที่ถูกกด เช่น ตัวอักษรหรือปุ่มลูกศร 
+
+    Input Events -> ใช้ตรวจจับเมื่อค่าภายในช่องกรอกข้อมูลมีการเปลี่ยน
+        เช่น input ซึ่งเกิดขึ้นทุกครั้งที่ผู้ใช้พิมพ์, change ที่จะเกิดเมื่อค่าถูกเปลี่ยนแล้วออกจากช่อง, submit สำหรับการส่งฟอร์ม, และ reset สำหรับการล้างค่าฟอร์มทั้งหมด
+
+
+
+
+
+
+
+
+
+
