@@ -52,4 +52,3 @@ Class 10 : Week 10 Progression
     
     ส่วน clear คือการ clear ออกทั้งหมด -> ม่ว่าจะเป็น key ไหนก็ตาม เช่น ถ้าเรียก sessionStorage.clear() ก็จะลบทุก key ที่อยู่ใน session storage ปัจจุบัน
 
-
